@@ -71,10 +71,14 @@
               <span>36%</span>
             </p>
           </div>
+          <div class="bor-lf"></div>
+          <div class="bor-rt"></div>
         </div>
         <div class="news-bg real-time">
           <p class="news-title">实时数据监控</p>
            <div id="myChart3" :style="{width: '470px', height: '280px'}"></div>
+           <div class="bor-lf"></div>
+          <div class="bor-rt"></div>
         </div>
       </div>
       <!-- 中部 -->
@@ -83,6 +87,8 @@
           数据总量
           <span>1</span>
         </div>
+        <div class="bor-lf"></div>
+        <div class="bor-rt"></div>
       </div>
       <!-- 右侧栏 -->
       <div class="fll news-rgt">
@@ -106,8 +112,6 @@ export default {
   props: {},
   data() {
     return {
-      user: "",
-      password: ""
     };
   },
   filters: {},
@@ -287,6 +291,23 @@ export default {
 
 .news-bg
   box-shadow #3755DA 0px 0px 16px inset
+  position relative
+  .bor-lf
+    width 25px
+    height 25px
+    border-left 1px solid #00A2FF 
+    border-bottom 1px solid #00A2FF
+    position absolute
+    bottom 1px
+    left 1px
+  .bor-rt
+    width 25px
+    height 25px
+    border-right 1px solid #00A2FF 
+    border-bottom 1px solid #00A2FF
+    position absolute
+    bottom 1px
+    right 1px
 .news-title
   width 100%
   height 36px
