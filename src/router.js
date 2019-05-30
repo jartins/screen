@@ -5,6 +5,7 @@ import Maps from "@/views/Maps.vue";
 import forepage from "@/views/forepage.vue";
 import Btninnerlougo from "@/views/Btninnerlougo.vue";
 import Sudoku from "@/views/Sudoku.vue";
+import Livenews from "@/views/Livenews.vue";
 
 Vue.use(Router);
 
@@ -36,6 +37,11 @@ export default new Router({
       path: "/Btninnerlougo",
       name: "Btninnerlougo",
       component: Btninnerlougo
+    },
+    {
+      path: "/livenews",
+      name: "Livenews",
+      component: Livenews
     }
   ]
 });

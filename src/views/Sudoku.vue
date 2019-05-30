@@ -152,9 +152,12 @@
           <div class="bor-lf"></div>
           <div class="bor-rt"></div>
         </div>
-        <div class="gather-weChat news-bg" style="margin-top: 5px;">
-          <div class="news-title">移动直播</div>
-          
+        <div class="gather-weChat news-bg" style="margin: 5px 0 0 0;">
+          <div class="news-title" style="margin: 0;">移动直播</div>
+          <video width="99%" height="245px" id="video1" controls="controls" style="margin: 3px;"> 
+            <source src="../assets/img/gbzy.mp4" type="video/mp4"></source> 
+            your browser does not support the video tag 
+          </video>
           <div class="bor-lf"></div>
           <div class="bor-rt"></div>
         </div>
@@ -222,53 +225,46 @@
           <div class="bor-rt"></div>
         </div>
         <div class="gather-weChat news-bg" style="margin-top: 5px;">
-          <div class="news-title">在线地图</div>
-          
+          <div class="news-title">资源分布</div>
+          <!-- 左边 -->
+          <div class="fll" style="width: 50%;">
+            <div id="myChart" :style="{width: '150px', height: '150px', margin: '10px auto'}"></div>
+            <p style="font-size: 12px; margin-left: 60px; color: #00DEFF;">
+              <span style="width: 12px; height: 12px; background: #0E6DE9; display: inline-block;"></span>
+              <span style="margin: 0 40px 0 10px; color: #Fff;">互联网</span>
+              <span>36%</span>
+            </p>
+            <p style="font-size: 12px; margin-left: 60px; color: #00DEFF;">
+              <span style="width: 12px; height: 12px; background: #AC4ED3; display: inline-block;"></span>
+              <span style="margin: 0 40px 0 10px; color: #Fff;">娱乐八卦</span>
+              <span>36%</span>
+            </p>
+          </div>
+          <!-- 右边 -->
+          <div class="flr" style="width: 50%;">
+            <div id="myChart2" :style="{width: '160px', height: '150px', margin: '10px auto'}"></div>
+            <p style="font-size: 12px; margin-left: 60px; color: #00DEFF;">
+              <span style="width: 12px; height: 12px; background: #0E6DE9; display: inline-block;"></span>
+              <span style="margin: 0 40px 0 10px; color: #Fff;">互联网</span>
+              <span>36%</span>
+            </p>
+            <p style="font-size: 12px; margin-left: 60px; color: #00DEFF;">
+              <span style="width: 12px; height: 12px; background: #AC4ED3; display: inline-block;"></span>
+              <span style="margin: 0 40px 0 10px; color: #Fff;">娱乐八卦</span>
+              <span>36%</span>
+            </p>
+          </div>
+          <!-- +++++++++++++++++++++++++ -->
           <div class="bor-lf"></div>
           <div class="bor-rt"></div>
         </div>
         <div class="gather-weChat news-bg" style="margin-top: 5px;">
-          <div class="news-title">地区排名</div>
-          <el-row style="margin-top: 20px;">
-            <el-col :span="6" style="color: #fff; padding-left: 25px;">
-              张江镇
-            </el-col>
-            <el-col :span="16">
-              <el-progress :percentage="80" color="#754ABF"></el-progress>
-            </el-col>
-          </el-row>
-          <el-row style="margin-top: 25px;">
-            <el-col :span="6" style="color: #fff; padding-left: 25px;">
-              浦东软件园
-            </el-col>
-            <el-col :span="16">
-              <el-progress :percentage="70" color="#00CCFF"></el-progress>
-            </el-col>
-          </el-row>
-          <el-row style="margin-top: 25px;">
-            <el-col :span="6" style="color: #fff; padding-left: 25px;">
-              高科技园区
-            </el-col>
-            <el-col :span="16">
-              <el-progress :percentage="60" color="#62C467"></el-progress>
-            </el-col>
-          </el-row>
-          <el-row style="margin-top: 25px;">
-            <el-col :span="6" style="color: #fff; padding-left: 25px;">
-              张江科技园
-            </el-col>
-            <el-col :span="16">
-              <el-progress :percentage="50" color="#FFB400"></el-progress>
-            </el-col>
-          </el-row>
-          <el-row style="margin-top: 25px;">
-            <el-col :span="6" style="color: #fff; padding-left: 25px;">
-              张江微电子港
-            </el-col>
-            <el-col :span="16">
-              <el-progress :percentage="40" color="#FF5B7A" style="color:;"></el-progress>
-            </el-col>
-          </el-row>
+          <div class="news-title">资源中心</div>
+          <el-carousel :interval="2000" type="card" height="200px" style="width: 98%; margin: 0 auto;">
+            <el-carousel-item v-for="(item, index) in imgList" :key="index">
+              <img :src="item" alt="" style="width: 100%;">
+            </el-carousel-item>
+          </el-carousel>
           <div class="bor-lf"></div>
           <div class="bor-rt"></div>
         </div>
@@ -283,6 +279,11 @@ export default {
   props: {},
   data() {
     return {
+      imgList: ['https://wx1.sinaimg.cn/mw690/9b02391aly1g3jjb6hzqzj20r80r8q6a.jpg',
+      'https://wx1.sinaimg.cn/mw690/9b02391aly1g3jjb6hzqzj20r80r8q6a.jpg',
+      'https://wx1.sinaimg.cn/mw690/9b02391aly1g3jjb6hzqzj20r80r8q6a.jpg',
+      'https://wx1.sinaimg.cn/mw690/9b02391aly1g3jjb6hzqzj20r80r8q6a.jpg',
+      'https://wx1.sinaimg.cn/mw690/9b02391aly1g3jjb6hzqzj20r80r8q6a.jpg']
     };
   },
   filters: {},
@@ -294,38 +295,63 @@ export default {
   watch: {},
   methods: {
     drawLine() {
-      // console.log(this.$echarts);
-      // // 基于准备好的dom，初始化echarts实例
-      // let myChart = this.$echarts.init(document.getElementById("myChart"));
-      // // 绘制图表
-      // myChart.setOption({
-      //   angleAxis: {},
-      //   radiusAxis: {
-      //     type: "category",
-      //     data: ["周一", "周二", "周三", "周四"],
-      //     z: 10,
-      //     axisLine: {
-      //       lineStyle: {
-      //         color: '#fff',
-      //         shadowColor: '#fff'
-      //       }
-      //     }
-      //   },
-      //   color: ["#AC4ED3", "#E6AF08", "#00AF6D", "#0E6DE9", "#2C77DE"],
-      //   polar: {},
-      //   series: [
-      //     {
-      //       type: "bar",
-      //       data: [5, 2, 4, 8],
-      //       coordinateSystem: "polar",
-      //       textShadowColor: '#fff',
-      //       emphasis: {
-      //         color: '#fff',
-      //         borderColor : '#fff'
-      //       }
-      //     }
-      //   ]
-      // });
+      // 基于准备好的dom，初始化echarts实例
+      let myChart = this.$echarts.init(document.getElementById("myChart"));
+      // 绘制图表
+      myChart.setOption({
+        angleAxis: {},
+        radiusAxis: {
+          type: "category",
+          data: ["周一", "周二", "周三", "周四"],
+          z: 10,
+          axisLine: {
+            lineStyle: {
+              color: '#fff',
+              shadowColor: '#fff'
+            }
+          }
+        },
+        color: ["#AC4ED3", "#E6AF08", "#00AF6D", "#0E6DE9", "#2C77DE"],
+        polar: {},
+        series: [
+          {
+            type: "bar",
+            data: [5, 2, 4, 8],
+            coordinateSystem: "polar",
+            textShadowColor: '#fff',
+            emphasis: {
+              color: '#fff',
+              borderColor : '#fff'
+            }
+          }
+        ]
+      });
+
+      // 基于准备好的dom，初始化echarts实例
+      let myChart2 = this.$echarts.init(document.getElementById("myChart2"));
+      // 绘制图表
+      myChart2.setOption({
+        series: [
+          {
+            type: "pie",
+            radius: [10, 60],
+            center: ["50%", "50%"],
+            roseType: "radius",
+            color: ["#0E6DE9", "#E6AF08", "#00AF6D", "#AC4ED3"],
+            label: {
+              normal: {
+                show: false
+              }
+            },
+            data: [
+              { value: 10},
+              { value: 13},
+              { value: 18},
+              { value: 25}
+            ]
+          }
+        ]
+      });
 
     }
   },
