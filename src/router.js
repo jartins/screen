@@ -4,6 +4,7 @@ import Home from "@/views/Home.vue";
 import Maps from "@/views/Maps.vue";
 import forepage from "@/views/forepage.vue";
 import Btninnerlougo from "@/views/Btninnerlougo.vue";
+import Sudoku from "@/views/Sudoku.vue";
 
 Vue.use(Router);
 
@@ -13,18 +14,23 @@ export default new Router({
   routes: [
     {
       path: "/",
-      name: "home",
+      name: "Home",
       component: Home
     },
     {
       path: "/maps",
-      name: "maps",
+      name: "Maps",
       component: Maps
     },
     {
       path: "/forepage",
       name: "forepage",
       component: forepage
+    },
+    {
+      path: "/sudoku",
+      name: "Sudoku",
+      component: Sudoku
     },
     {
       path: "/Btninnerlougo",
