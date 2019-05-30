@@ -46,7 +46,9 @@ export default {
     onLogin() {
       this.$router.push('/maps');
     },
-    register() {}
+    register() {
+       this.$router.push('/Btninnerlougo');
+    }
   },
   components: {}
 };
