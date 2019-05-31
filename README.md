@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # name
 
 ## Project setup
@@ -33,7 +32,6 @@ npm run test:e2e
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
-=======
+
 # screen
 融媒体大屏
->>>>>>> dc043db8d7ce2feecf0793b907d06269bd56ff27

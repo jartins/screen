@@ -83,7 +83,8 @@
        <div class="gather-weChat news-bg">
           <div class="news-title">新闻线索</div>
           <p>记者录入</p>
-          <p>
+          <div id="app"></div>
+          <!-- <p>
             <span style="width: 234px; display:inline-block;">· 航班延误乘客要工作人..</span>
             <span style="width: 155px;font-size: 12px; display:inline-block;">发布人：张麻子</span>
             <span style="font-size: 12px; display:inline-block;">2019-02-31-12:33</span>
@@ -112,7 +113,7 @@
             <span style="width: 234px; display:inline-block;">· 航班延误乘客要工作人..</span>
             <span style="width: 155px;font-size: 12px; display:inline-block;">发布人：张麻子</span>
             <span style="font-size: 12px; display:inline-block;">2019-02-31-12:33</span>
-          </p>
+          </p> -->
           <div class="bor-lf"></div>
           <div class="bor-rt"></div>
         </div>
@@ -275,6 +276,8 @@
 </template>
 
 <script>
+import AwesomeDanmaku from 'awesome-danmaku';
+
 export default {
   props: {},
   data() {
@@ -288,13 +291,45 @@ export default {
   },
   filters: {},
   computed: {},
-  created() {},
+  created() {
+    this.getData();
+  },
   mounted() {
     this.drawLine();
   },
   watch: {},
   methods: {
+    getData() {
+      let parmas = {
+        secret: '598f92d7e2212654288254facf4cdf51'
+      }
+      this.get('/index.php/api/screenv1.converge/wxdata', parmas).then(res => {
+        if(res.data.code == 200) {
+          console.log(res.data);
+          this.$message.success('ok');
+        } else if(res.data.code == 201) {
+          this.$message.error(res.data.message);
+        } else if (res.data.code == 202){
+          window.localStorage.removeItem("user_id");
+          window.localStorage.removeItem("user_token");
+          this.$router.go(0);
+        }
+      }).catch(e => {
+        this.$message.error(e.message);
+      });
+
+    },
     drawLine() {
+
+      // const player = AwesomeDanmaku.getPlayer('#app');
+      // player.play();
+      // player.insert([
+      //   'Hello Awesome Danmaku!',
+      //   '我是第1条弹幕...',
+      //   '我是第2条弹幕...',
+      //   '我是第3条弹幕...',
+      // ]);
+
       // 基于准备好的dom，初始化echarts实例
       let myChart = this.$echarts.init(document.getElementById("myChart"));
       // 绘制图表
