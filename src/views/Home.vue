@@ -12,13 +12,13 @@
           <div class="icon fll">
             <img :src="require('@/assets/img/login/user.png')" width="32">
           </div>
-          <input class="fll" type="text" v-model="user" placeholder="请输入用户名/手机号">
+          <input class="fll" type="text" v-model="user" placeholder="请输入用户名/手机号" value="" v-on:keyup="inputTargetValue">
         </div>
         <div class="account">
           <div class="icon fll">
             <img :src="require('@/assets/img/login/pwd.png')" width="28">
           </div>
-          <input class="fll" type="text" v-model="password" placeholder="请输入密码">
+          <input class="fll" type="text" v-model="password" placeholder="请输入密码" value="" v-on:keyup="inputkeyupValue">
         </div>
         <div class="btn" @click="onLogin">立即登录</div>
         <p class="register" @click="register">注册 ></p>
@@ -33,7 +33,9 @@ export default {
   data() {
     return {
       user: '',
-      password: ''
+      password: '',
+      name:'',
+      kepu:'',
     };
   },
   filters: {},
@@ -43,11 +45,41 @@ export default {
   mounted() {},
   watch: {},
   methods: {
+    // 账号
+    inputTargetValue: function(e){
+        console.log(e.target.value)
+        this.name = e.target.value
+    },
+     //密码
+     inputkeyupValue:function(e){
+        console.log(e.target.value)
+        this.kepu = e.target.value
+    },
     onLogin() {
-      this.$router.push('/maps');
+       let parmas = {
+        username:this.name,	//是	string	用户名
+        password:this.kepu,	//是	string	密码
+      }
+      this.get('/index.php/api/screenv1.login/do_login', parmas).then(res => {
+        if(res.data.code == 200) {
+          console.log(res.data);
+          this.$message.success('ok');
+          this.$router.push({ path: '/Btninnerlougo' });
+          // this.$routers.push('/maps');
+        } else if(!res.data.code == 201) {
+          this.$message.error(res.data.message);
+        } else if (res.data.code == 202){
+          window.localStorage.removeItem("user_id");
+          window.localStorage.removeItem("user_token");
+          this.$router.go(0);
+        }
+      }).catch(e => {
+        this.$message.error(e.message);
+      });
+     
     },
     register() {
-       this.$router.push('/Btninnerlougo');
+      //  this.$router.push('/Btninnerlougo');
     }
   },
   components: {}

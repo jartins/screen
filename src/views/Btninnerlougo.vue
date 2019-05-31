@@ -16,7 +16,7 @@
            
          </ul>
          <ul class="chromeblack">
-            <li v-for="item in list" :key="item.index">
+            <li v-for="item in list" :key="item.index" @click="getData()">
               <img src="../assets/img/keisiforter/xuanz.png" v-if="!item.name" alt="" class="imageskesi">
               <img src="../assets/img/keisiforter/xuanz1.png" v-if="item.name" alt="" class="imageskesi">
               <div class="listkepnum">{{item.name}}</div>
@@ -43,7 +43,8 @@ export default {
     return {
       user: "",
       password: "",
-      data: ['市本级','常熟市', '张家港市', '昆山市', '太仓市', '相城市', '工业园区', '姑苏区', '高新区', '吴中区'],
+      // data: ['市本级','常熟市', '张家港市', '昆山市', '太仓市', '相城市', '工业园区', '姑苏区', '高新区', '吴中区'],
+      data:null,
       zanList: [],
       list:[{id: 1,name: ''},{id: 1,name: ''},{id: 1,name: ''},{id: 1,name: ''},{id: 1,name: ''},{id: 1,name: ''},{id: 1,name: ''},{id: 1,name: ''},{id: 1,name: ''}],
       srckup:require('../assets/img/keisiforter/xuanz.png'),
@@ -59,6 +60,13 @@ export default {
   },
   mounted() {
     // this.drawLine();
+    this.get('/index.php/api/screenv1.menubar/get_menu').then(res => {
+        console.log(res.data)
+        this.data=res.data;
+        
+      }).catch(e => {
+        this.$message.error(e.message);
+      });
   },
   watch: {},
   methods: {
@@ -66,7 +74,7 @@ export default {
       console.log(ine)
      
      var btnkeisi=this.data[ine]
-
+       console.log(btnkeisi)
      if(this.zanList.length<9){
         this.zanList.push(btnkeisi)
         this.data.splice(ine,1)
@@ -84,76 +92,11 @@ export default {
       
       
     },
-    // drawLine() {
-      // console.lof(this.data.psuh(...this.list));
-    //   console.log(this.$echarts);
-    //   // 基于准备好的dom，初始化echarts实例
-    //   let myChart = this.$echarts.init(document.getElementById("myChart"));
-    //   // 绘制图表
-    //   myChart.setOption({
-    //     angleAxis: {},
-    //     radiusAxis: {
-    //       type: "category",
-    //       data: ["周一", "周二", "周三", "周四"],
-    //       z: 10
-    //     },
-    //     color: ["#AC4ED3", "#E6AF08", "#00AF6D", "#0E6DE9", "#2C77DE"],
-    //     polar: {},
-    //     series: [
-    //       {
-    //         type: "bar",
-    //         data: [1, 2, 3, 4],
-    //         coordinateSystem: "polar",
-    //         name: "A",
-    //         stack: "a"
-    //       },
-    //       {
-    //         type: "bar",
-    //         data: [2, 4, 6, 8],
-    //         coordinateSystem: "polar",
-    //         name: "B",
-    //         stack: "a"
-    //       },
-    //       {
-    //         type: "bar",
-    //         data: [1, 2, 3, 4],
-    //         coordinateSystem: "polar",
-    //         name: "C",
-    //         stack: "a"
-    //       }
-    //     ],
-    //     legend: {
-    //       show: true,
-    //       data: ["A", "B", "C", "D"]
-    //     }
-    //   });
+    getData() {
+      
 
-    //   // 基于准备好的dom，初始化echarts实例
-    //   let myChart2 = this.$echarts.init(document.getElementById("myChart2"));
-    //   // 绘制图表
-    //   myChart2.setOption({
-    //     series: [
-    //       {
-    //         type: "pie",
-    //         radius: [20, 100],
-    //         center: ["50%", "50%"],
-    //         roseType: "radius",
-    //         color: ["#0E6DE9", "#E6AF08", "#00AF6D", "#AC4ED3"],
-    //         label: {
-    //           normal: {
-    //             show: false
-    //           }
-    //         },
-    //         data: [
-    //           { value: 10},
-    //           { value: 13},
-    //           { value: 18},
-    //           { value: 25}
-    //         ]
-    //       }
-    //     ]
-    //   });
-    // }
+    },
+
   },
   components: {}
 };
