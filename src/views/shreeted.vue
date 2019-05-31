@@ -17,8 +17,8 @@
          </ul>
          <ul class="chromeblack">
             <li v-for="item in list" :key="item.index">
-              <img src="../assets/img/keisiforter/xuanz.png" v-if="!item.name" alt="" class="imageskesi">
-              <img src="../assets/img/keisiforter/xuanz1.png" v-if="item.name" alt="" class="imageskesi">
+              <img src="../assets/img/keisiforter/kepopcti.png" v-if="!item.name" alt="" class="imageskesi">
+              <img src="../assets/img/keisiforter/kepcenter.png" v-if="item.name" alt="" class="imageskesi">
               <div class="listkepnum">{{item.name}}</div>
             </li>
            <!-- <li>
@@ -45,7 +45,7 @@ export default {
       password: "",
       data: ['市本级','常熟市', '张家港市', '昆山市', '太仓市', '相城市', '工业园区', '姑苏区', '高新区', '吴中区'],
       zanList: [],
-      list:[{id: 1,name: ''},{id: 1,name: ''},{id: 1,name: ''},{id: 1,name: ''},{id: 1,name: ''},{id: 1,name: ''},{id: 1,name: ''},{id: 1,name: ''},{id: 1,name: ''}],
+      list:[{id: 1,name: ''},{id: 1,name: ''},{id: 1,name: ''},{id: 1,name: ''}],
       srckup:require('../assets/img/keisiforter/xuanz.png'),
       text:null,
       content:[],
@@ -65,22 +65,20 @@ export default {
     clickfun(ine) {
       console.log(ine)
      
-     var btnkeisi=this.data[ine]
-
-     if(this.zanList.length<9){
+      var btnkeisi=this.data[ine]
+      if(this.zanList.length<4){
         this.zanList.push(btnkeisi)
         this.data.splice(ine,1)
-      }else if(this.zanList.length>9){
-          this.zanList.length=9
+      }else if(this.zanList.length>4){
+          this.zanList.length=4
       }
-
       
       this.zanList.forEach((v, index) => {
         this.list[index].name = v;
-        console.log( v )
       })
      
        
+       console.log(btnkeisi)
       
       
     },
@@ -191,7 +189,7 @@ line-height: 60px;
  margin: 50px 0 0 0;
 }
 .chromeblack li{
-width: 27.3%;
+width:  44%;
 height: 95px;
 background:#042D7A;
 border-radius:10px;

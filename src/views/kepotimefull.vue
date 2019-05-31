@@ -17,8 +17,9 @@
          </ul>
          <ul class="chromeblack">
             <li v-for="item in list" :key="item.index">
-              <img src="../assets/img/keisiforter/xuanz.png" v-if="!item.name" alt="" class="imageskesi">
-              <img src="../assets/img/keisiforter/xuanz1.png" v-if="item.name" alt="" class="imageskesi">
+              <img src="../assets/img/keisiforter/Pinmu.png" v-if="!item.name" alt="" class="imageskesi">
+              <img src="../assets/img/keisiforter/pinmukepu.png" v-if="item.name" alt="" class="imageskesi">
+              <img src="../assets/img/keisiforter/xiaoxo.png"  v-if="item.name" alt="" class="xuakutixoa">
               <div class="listkepnum">{{item.name}}</div>
             </li>
            <!-- <li>
@@ -45,7 +46,7 @@ export default {
       password: "",
       data: ['市本级','常熟市', '张家港市', '昆山市', '太仓市', '相城市', '工业园区', '姑苏区', '高新区', '吴中区'],
       zanList: [],
-      list:[{id: 1,name: ''},{id: 1,name: ''},{id: 1,name: ''},{id: 1,name: ''},{id: 1,name: ''},{id: 1,name: ''},{id: 1,name: ''},{id: 1,name: ''},{id: 1,name: ''}],
+      list:[{id: 1,name: ''}],
       srckup:require('../assets/img/keisiforter/xuanz.png'),
       text:null,
       content:[],
@@ -64,23 +65,27 @@ export default {
   methods: {
     clickfun(ine) {
       console.log(ine)
-     
-     var btnkeisi=this.data[ine]
-
-     if(this.zanList.length<9){
+      var btnkeisi=this.data[ine]
+      this.text=btnkeisi
+      
+      if(this.zanList.length<1){
         this.zanList.push(btnkeisi)
         this.data.splice(ine,1)
-      }else if(this.zanList.length>9){
-          this.zanList.length=9
+      }else if(this.zanList.length>1){
+          this.zanList.length=1
       }
-
+    //   (this.zanList.length<0) ? this.zanList.push(btnkeisi) : this.zanList.length=1;
       
+      console.log(this.zanList.length)
       this.zanList.forEach((v, index) => {
         this.list[index].name = v;
-        console.log( v )
+        console.log(v)
+        console.log(this.list[index].name)
       })
      
        
+       
+       console.log(btnkeisi)
       
       
     },
@@ -187,31 +192,42 @@ text-align: center;
 line-height: 60px;
 }
 .chromeblack{
- overflow: hidden;
- margin: 50px 0 0 0;
+width: 55%;
+margin:50px auto;
+margin-bottom: 0;
+overflow: hidden;
+ 
 }
 .chromeblack li{
-width: 27.3%;
-height: 95px;
+width:  100%;
+height:322px;
 background:#042D7A;
 border-radius:10px;
-float :left;
-margin: 0px 3% 40px 3%;
+margin: 0 auto;
 position: relative;
 }
 .listkepnum{
-  font-size:20px;
-  font-family:PingFangSC-Regular;
-  font-weight:300;
-  color: #fff;
-  text-shadow: 0px 1px 5px white,
-                0 0 10px #fff;
-  /* line-height: 95px;
-  text-align: center; */
-  position: absolute;
-  left: 40%;
-  top: 33%;
-  z-index: 2;
+font-size:55px;
+font-family:PingFangSC-Regular;
+font-weight:300;
+color: #fff;
+text-shadow: 0px 1px 5px white,
+             0 0 10px #fff;
+/* line-height: 95px;
+text-align: center; */
+position: absolute;
+left: 39%;
+top: 38%;
+z-index: 2;
+}
+.xuakutixoa{
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 47%;
+    width: 100%;
+    height: 100px;
+    z-index: 1;
 }
 </style>
 
