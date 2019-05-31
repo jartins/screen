@@ -8,8 +8,8 @@
       <div style="height: 50px"></div>
       <div class="news-bg live-new">
         <div class="news-title"></div>
-        <video width="100%" height="690px" id="video1" controls="controls" style="margin: 0;"> 
-          <source src="../assets/img/gbzy.mp4" type="video/mp4"></source> 
+        <video width="100%" height="690px" id="video1"  controls="controls" style="margin: 0; object-fit: fill" src="../assets/img/gbzy.mp4"> 
+          <!-- <source src="../assets/img/gbzy.mp4" type="video/mp4"></source>  -->
           your browser does not support the video tag 
         </video>
         <div class="bor-lf"></div>
