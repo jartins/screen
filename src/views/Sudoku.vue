@@ -8,49 +8,14 @@
       <div class="fll content-lf">
         <div class="gather-weChat news-bg">
           <div class="news-title">汇聚微信</div>
-          <p> - 物以“稀”为贵，九成稀土概念股上涨，14天市值增千亿</p>
-          <p> - 物以“稀”为贵，九成稀土概念股上涨，14天市值增千亿</p>
-          <p> - 物以“稀”为贵，九成稀土概念股上涨，14天市值增千亿</p>
-          <p> - 物以“稀”为贵，九成稀土概念股上涨，14天市值增千亿</p>
-          <p> - 物以“稀”为贵，九成稀土概念股上涨，14天市值增千亿</p>
-          <p> - 物以“稀”为贵，九成稀土概念股上涨，14天市值增千亿</p>
-          <p> - 物以“稀”为贵，九成稀土概念股上涨，14天市值增千亿</p>
-          <div class="bor-lf"></div>
-          <div class="bor-rt"></div>
-        </div>
-        <div class="gather-weChat news-bg" style="margin-top: 5px;">
-          <div class="news-title">新闻线索</div>
-          <p>记者录入</p>
-          <p>
-            <span style="width: 350px; display:inline-block;">驻日美军佩戴特朗普头像徽章，美媒... </span>
-            <span style="width: 114px;font-size: 12px; display:inline-block;">10分钟前</span>
-            <span style="font-size: 12px; display:inline-block;">作者：小树</span>
-          </p>
-          <p>
-            <span style="width: 350px; display:inline-block;">驻日美军佩戴特朗普头像徽章，美媒... </span>
-            <span style="width: 114px;font-size: 12px; display:inline-block;">10分钟前</span>
-            <span style="font-size: 12px; display:inline-block;">作者：小树</span>
-          </p>
-          <p>
-            <span style="width: 350px; display:inline-block;">驻日美军佩戴特朗普头像徽章，美媒... </span>
-            <span style="width: 114px;font-size: 12px; display:inline-block;">10分钟前</span>
-            <span style="font-size: 12px; display:inline-block;">作者：小树</span>
-          </p>
-          <p>
-            <span style="width: 350px; display:inline-block;">驻日美军佩戴特朗普头像徽章，美媒... </span>
-            <span style="width: 114px;font-size: 12px; display:inline-block;">10分钟前</span>
-            <span style="font-size: 12px; display:inline-block;">作者：小树</span>
-          </p>
-          <p>
-            <span style="width: 350px; display:inline-block;">驻日美军佩戴特朗普头像徽章，美媒... </span>
-            <span style="width: 114px;font-size: 12px; display:inline-block;">10分钟前</span>
-            <span style="font-size: 12px; display:inline-block;">作者：小树</span>
-          </p>
-          <p>
-            <span style="width: 350px; display:inline-block;">驻日美军佩戴特朗普头像徽章，美媒... </span>
-            <span style="width: 114px;font-size: 12px; display:inline-block;">10分钟前</span>
-            <span style="font-size: 12px; display:inline-block;">作者：小树</span>
-          </p>
+          <div class="inner-father">
+            <div class="inner-container">
+              <p class="text" v-for="(text, index) in gatherList" :key="index">- {{text}}</p>
+            </div>
+            <div class="inner-container">
+              <p class="text" v-for="(text, index) in gatherList" :key="index">- {{text}}</p>
+            </div>
+          </div>
           <div class="bor-lf"></div>
           <div class="bor-rt"></div>
         </div>
@@ -58,107 +23,95 @@
           <div class="news-title">舆情分析</div>
           <el-row style="width: 90%; margin: 50px auto;">
             <el-col :span="6" style="margin: 0 auto; text-align: center;">
-              <el-progress type="circle" :percentage="68" color="#8e71c7" :width="100"></el-progress>
+              <el-progress type="circle" :percentage="sentiment.ad - 0" color="#8e71c7" :width="100"></el-progress>
               <h3 style="color: #fff">广 告</h3>
             </el-col>
             <el-col :span="6" style="margin: 0 auto; text-align: center;">
-              <el-progress type="circle" :percentage="35" color="#FE8E5F" :width="100"></el-progress>
+              <el-progress type="circle" :percentage="sentiment.consult - 0" color="#FE8E5F" :width="100"></el-progress>
               <h3 style="color: #fff">资 讯</h3>
             </el-col>
             <el-col :span="6" style="margin: 0 auto; text-align: center;">
-              <el-progress type="circle" :percentage="23" color="#7DE3F6" :width="100"></el-progress>
+              <el-progress type="circle" :percentage="sentiment.video - 0" color="#7DE3F6" :width="100"></el-progress>
               <h3 style="color: #fff">视 频</h3>
             </el-col>
             <el-col :span="6" style="margin: 0 auto; text-align: center;">
-              <el-progress type="circle" :percentage="12" color="#E6AF08" :width="100"></el-progress>
+              <el-progress type="circle" :percentage="sentiment.arecreationd - 0" color="#E6AF08" :width="100"></el-progress>
               <h3 style="color: #fff">y 娱 乐</h3>
             </el-col>
           </el-row>
           <div class="bor-lf"></div>
           <div class="bor-rt"></div>
         </div>
+        <div class="gather-weChat news-bg" style="margin-top: 5px;">
+          <div class="news-title">新闻线索</div>
+          <div class="inner-father">
+            <div class="inner-container">
+              <p class="text" v-for="(item, index) in newsList" :key="index">
+                <span style="width: 350px; display:inline-block;">{{item.title}}</span>
+                <span style="width: 114px;font-size: 12px; display:inline-block;">{{item.regdate}}</span>
+                <span style="font-size: 12px; display:inline-block;">{{item.author}}</span>
+              </p>
+            </div>
+            <div class="inner-container">
+              <p class="text" v-for="(item, index) in newsList" :key="index">
+                <span style="width: 350px; display:inline-block;">{{item.title}}</span>
+                <span style="width: 114px;font-size: 12px; display:inline-block;">{{item.regdate}}</span>
+                <span style="font-size: 12px; display:inline-block;">{{item.author}}</span>
+              </p>
+            </div>
+          </div>
+          <div class="bor-lf"></div>
+          <div class="bor-rt"></div>
+        </div>
       </div>
       <!-- 中部 -->
       <div class="fll content-lf" style="width: 560px; margin-left: 10px;">
-       <div class="gather-weChat news-bg">
-          <div class="news-title">新闻线索</div>
-          <p>记者录入</p>
-          <div id="app"></div>
-          <!-- <p>
-            <span style="width: 234px; display:inline-block;">· 航班延误乘客要工作人..</span>
-            <span style="width: 155px;font-size: 12px; display:inline-block;">发布人：张麻子</span>
-            <span style="font-size: 12px; display:inline-block;">2019-02-31-12:33</span>
-          </p>
-          <p>
-            <span style="width: 234px; display:inline-block;">· 航班延误乘客要工作人..</span>
-            <span style="width: 155px;font-size: 12px; display:inline-block;">发布人：张麻子</span>
-            <span style="font-size: 12px; display:inline-block;">2019-02-31-12:33</span>
-          </p>
-          <p>
-            <span style="width: 234px; display:inline-block;">· 航班延误乘客要工作人..</span>
-            <span style="width: 155px;font-size: 12px; display:inline-block;">发布人：张麻子</span>
-            <span style="font-size: 12px; display:inline-block;">2019-02-31-12:33</span>
-          </p>
-          <p>
-            <span style="width: 234px; display:inline-block;">· 航班延误乘客要工作人..</span>
-            <span style="width: 155px;font-size: 12px; display:inline-block;">发布人：张麻子</span>
-            <span style="font-size: 12px; display:inline-block;">2019-02-31-12:33</span>
-          </p>
-          <p>
-            <span style="width: 234px; display:inline-block;">· 航班延误乘客要工作人..</span>
-            <span style="width: 155px;font-size: 12px; display:inline-block;">发布人：张麻子</span>
-            <span style="font-size: 12px; display:inline-block;">2019-02-31-12:33</span>
-          </p>
-          <p>
-            <span style="width: 234px; display:inline-block;">· 航班延误乘客要工作人..</span>
-            <span style="width: 155px;font-size: 12px; display:inline-block;">发布人：张麻子</span>
-            <span style="font-size: 12px; display:inline-block;">2019-02-31-12:33</span>
-          </p> -->
+        <div class="gather-weChat news-bg">
+          <div class="news-title" style="margin: 0;">移动直播</div>
+          <video width="99%" height="245px" id="video1"  controls="controls" style="margin: 3px; object-fit: fill" :src="liveurl"> 
+            <!-- <source src="../assets/img/gbzy.mp4" type="video/mp4"></source> -->
+            your browser does not support the video tag 
+          </video>
           <div class="bor-lf"></div>
           <div class="bor-rt"></div>
         </div>
         <div class="gather-weChat news-bg" style="margin-top: 5px;">
           <div class="news-title">最新任务</div>
-          <p>记者录入</p>
-          <p>
-            <span style="width: 234px; display:inline-block;">· 航班延误乘客要工作人..</span>
-            <span style="width: 155px;font-size: 12px; display:inline-block;">发布人：张麻子</span>
-            <span style="font-size: 12px; display:inline-block;">2019-02-31-12:33</span>
-          </p>
-          <p>
-            <span style="width: 234px; display:inline-block;">· 航班延误乘客要工作人..</span>
-            <span style="width: 155px;font-size: 12px; display:inline-block;">发布人：张麻子</span>
-            <span style="font-size: 12px; display:inline-block;">2019-02-31-12:33</span>
-          </p>
-          <p>
-            <span style="width: 234px; display:inline-block;">· 航班延误乘客要工作人..</span>
-            <span style="width: 155px;font-size: 12px; display:inline-block;">发布人：张麻子</span>
-            <span style="font-size: 12px; display:inline-block;">2019-02-31-12:33</span>
-          </p>
-          <p>
-            <span style="width: 234px; display:inline-block;">· 航班延误乘客要工作人..</span>
-            <span style="width: 155px;font-size: 12px; display:inline-block;">发布人：张麻子</span>
-            <span style="font-size: 12px; display:inline-block;">2019-02-31-12:33</span>
-          </p>
-          <p>
-            <span style="width: 234px; display:inline-block;">· 航班延误乘客要工作人..</span>
-            <span style="width: 155px;font-size: 12px; display:inline-block;">发布人：张麻子</span>
-            <span style="font-size: 12px; display:inline-block;">2019-02-31-12:33</span>
-          </p>
-          <p>
-            <span style="width: 234px; display:inline-block;">· 航班延误乘客要工作人..</span>
-            <span style="width: 155px;font-size: 12px; display:inline-block;">发布人：张麻子</span>
-            <span style="font-size: 12px; display:inline-block;">2019-02-31-12:33</span>
-          </p>
+          <div class="inner-father">
+            <div class="inner-container">
+              <p class="text" v-for="(item, index) in newtask" :key="index">
+                <span style="width: 234px; display:inline-block;">· {{item.title}}</span>
+                <span style="width: 155px;font-size: 12px; display:inline-block;">发布人：{{item.author}}</span>
+                <span style="font-size: 12px; display:inline-block;">{{item.regdate}}</span>
+              </p>
+            </div>
+            <div class="inner-container">
+              <p class="text" v-for="(item, index) in newtask" :key="index">
+                <span style="width: 234px; display:inline-block;">· {{item.title}}</span>
+                <span style="width: 155px;font-size: 12px; display:inline-block;">发布人：{{item.author}}</span>
+                <span style="font-size: 12px; display:inline-block;">{{item.regdate}}</span>
+              </p>
+            </div>
+          </div>
+          <!-- <p>
+            
+          </p> -->
           <div class="bor-lf"></div>
           <div class="bor-rt"></div>
         </div>
         <div class="gather-weChat news-bg" style="margin: 5px 0 0 0;">
-          <div class="news-title" style="margin: 0;">移动直播</div>
-          <video width="99%" height="245px" id="video1" controls="controls" style="margin: 3px;"> 
-            <source src="../assets/img/gbzy.mp4" type="video/mp4"></source> 
-            your browser does not support the video tag 
-          </video>
+          <div class="news-title">素材回传</div>
+          <el-row v-for="(item, index) in materialreturn" :key="index" style="margin-top: 22px;">
+            <el-col :span="5" style="color: #fff; text-align: center;">
+              任务资源
+            </el-col>
+            <el-col :span="13">
+              <el-progress :text-inside="true" :stroke-width="18" :percentage="item.baifenbi.substr(0, 2) - 0" color="#01B4FF" class="resource"></el-progress>
+            </el-col>
+            <el-col :span="6" style="color: #02AFFF; text-align: center;">
+              {{item.task}} 万个
+            </el-col>
+          </el-row>
           <div class="bor-lf"></div>
           <div class="bor-rt"></div>
         </div>
@@ -166,62 +119,13 @@
       <!-- 右侧栏 -->
       <div class="fll content-lf" style="width: 566px; margin-left: 10px;">
         <div class="gather-weChat news-bg">
-          <div class="news-title">素材回传</div>
-          <el-row>
-            <el-col :span="5" style="color: #fff; text-align: center;">
-              任务资源
-            </el-col>
-            <el-col :span="13">
-              <el-progress :text-inside="true" :stroke-width="18" :percentage="80" color="#01B4FF" class="resource"></el-progress>
-            </el-col>
-            <el-col :span="6" style="color: #02AFFF; text-align: center;">
-              21200 万个
-            </el-col>
-          </el-row>
-          <el-row style="margin-top: 25px;">
-            <el-col :span="5" style="color: #fff; text-align: center;">
-              任务资源
-            </el-col>
-            <el-col :span="13">
-              <el-progress :text-inside="true" :stroke-width="18" :percentage="80" color="#01B4FF" class="resource"></el-progress>
-            </el-col>
-            <el-col :span="6" style="color: #02AFFF; text-align: center;">
-              21200 万个
-            </el-col>
-          </el-row>
-          <el-row style="margin-top: 25px;">
-            <el-col :span="5" style="color: #fff; text-align: center;">
-              任务资源
-            </el-col>
-            <el-col :span="13">
-              <el-progress :text-inside="true" :stroke-width="18" :percentage="80" color="#01B4FF" class="resource"></el-progress>
-            </el-col>
-            <el-col :span="6" style="color: #02AFFF; text-align: center;">
-              21200 万个
-            </el-col>
-          </el-row>
-          <el-row style="margin-top: 25px;">
-            <el-col :span="5" style="color: #fff; text-align: center;">
-              任务资源
-            </el-col>
-            <el-col :span="13">
-              <el-progress :text-inside="true" :stroke-width="18" :percentage="80" color="#01B4FF" class="resource"></el-progress>
-            </el-col>
-            <el-col :span="6" style="color: #02AFFF; text-align: center;">
-              21200 万个
-            </el-col>
-          </el-row>
-          <el-row style="margin-top: 25px;">
-            <el-col :span="5" style="color: #fff; text-align: center;">
-              任务资源
-            </el-col>
-            <el-col :span="13">
-              <el-progress :text-inside="true" :stroke-width="18" :percentage="80" color="#01B4FF" class="resource"></el-progress>
-            </el-col>
-            <el-col :span="6" style="color: #02AFFF; text-align: center;">
-              21200 万个
-            </el-col>
-          </el-row>
+          <div class="news-title" style="margin: 0;">最新选题</div>
+          <div id="danm"></div>
+          <!-- <p>
+            <span style="width: 234px; display:inline-block;">· 航班延误乘客要工作人..</span>
+            <span style="width: 155px;font-size: 12px; display:inline-block;">发布人：张麻子</span>
+            <span style="font-size: 12px; display:inline-block;">2019-02-31-12:33</span>
+          </p> -->
           <div class="bor-lf"></div>
           <div class="bor-rt"></div>
         </div>
@@ -233,12 +137,12 @@
             <p style="font-size: 12px; margin-left: 60px; color: #00DEFF;">
               <span style="width: 12px; height: 12px; background: #0E6DE9; display: inline-block;"></span>
               <span style="margin: 0 40px 0 10px; color: #Fff;">互联网</span>
-              <span>36%</span>
+              <span>{{resources.news}}%</span>
             </p>
             <p style="font-size: 12px; margin-left: 60px; color: #00DEFF;">
               <span style="width: 12px; height: 12px; background: #AC4ED3; display: inline-block;"></span>
               <span style="margin: 0 40px 0 10px; color: #Fff;">娱乐八卦</span>
-              <span>36%</span>
+              <span>{{resources.sale}}%</span>
             </p>
           </div>
           <!-- 右边 -->
@@ -247,12 +151,12 @@
             <p style="font-size: 12px; margin-left: 60px; color: #00DEFF;">
               <span style="width: 12px; height: 12px; background: #0E6DE9; display: inline-block;"></span>
               <span style="margin: 0 40px 0 10px; color: #Fff;">互联网</span>
-              <span>36%</span>
+              <span>{{resources.entertainment}}%</span>
             </p>
             <p style="font-size: 12px; margin-left: 60px; color: #00DEFF;">
               <span style="width: 12px; height: 12px; background: #AC4ED3; display: inline-block;"></span>
               <span style="margin: 0 40px 0 10px; color: #Fff;">娱乐八卦</span>
-              <span>36%</span>
+              <span>{{resources.design}}%</span>
             </p>
           </div>
           <!-- +++++++++++++++++++++++++ -->
@@ -263,7 +167,12 @@
           <div class="news-title">资源中心</div>
           <el-carousel :interval="2000" type="card" height="200px" style="width: 98%; margin: 0 auto;">
             <el-carousel-item v-for="(item, index) in imgList" :key="index">
-              <img :src="item" alt="" style="width: 100%;">
+              <img :src="item.image" alt="" style="width: 100%;">
+              <div class="img-content">
+                <h3>科技引领未来的同时,你感受到了科技...</h3>
+                <p style="padding-left: 0;">发布人：雪梨</p>
+                <p style="float: right;">019-03-24-12:23</p>
+              </div>
             </el-carousel-item>
           </el-carousel>
           <div class="bor-lf"></div>
@@ -282,11 +191,15 @@ export default {
   props: {},
   data() {
     return {
-      imgList: ['https://wx1.sinaimg.cn/mw690/9b02391aly1g3jjb6hzqzj20r80r8q6a.jpg',
-      'https://wx1.sinaimg.cn/mw690/9b02391aly1g3jjb6hzqzj20r80r8q6a.jpg',
-      'https://wx1.sinaimg.cn/mw690/9b02391aly1g3jjb6hzqzj20r80r8q6a.jpg',
-      'https://wx1.sinaimg.cn/mw690/9b02391aly1g3jjb6hzqzj20r80r8q6a.jpg',
-      'https://wx1.sinaimg.cn/mw690/9b02391aly1g3jjb6hzqzj20r80r8q6a.jpg']
+      gatherList: [],
+      newsList: [],
+      sentiment: {},
+      newtask: [],
+      imgList: [],
+      liveurl: '',
+      materialreturn: {},
+      resources: {},
+      danmList: []
     };
   },
   filters: {},
@@ -303,16 +216,95 @@ export default {
       let parmas = {
         secret: '598f92d7e2212654288254facf4cdf51'
       }
+      // 汇聚微信
       this.get('/index.php/api/screenv1.converge/wxdata', parmas).then(res => {
         if(res.data.code == 200) {
-          console.log(res.data);
-          this.$message.success('ok');
-        } else if(res.data.code == 201) {
+          this.gatherList = res.data.list;
+        } else {
           this.$message.error(res.data.message);
-        } else if (res.data.code == 202){
-          window.localStorage.removeItem("user_id");
-          window.localStorage.removeItem("user_token");
-          this.$router.go(0);
+        }
+      }).catch(e => {
+        this.$message.error(e.message);
+      });
+
+      // 新闻线索
+      this.get('/index.php/api/screenv1.converge/newsdata', parmas).then(res => {
+        if(res.data.code == 200) {
+          this.newsList = res.data.list;
+        } else {
+          this.$message.error(res.data.message);
+        }
+      }).catch(e => {
+        this.$message.error(e.message);
+      });
+
+      // 舆情分析
+      this.get('/index.php/api/screenv1.converge/sentiment', parmas).then(res => {
+        if(res.data.code == 200) {
+          this.sentiment = res.data.list;
+        } else {
+          this.$message.error(res.data.message);
+        }
+      }).catch(e => {
+        this.$message.error(e.message);
+      });
+
+      // 最新选题
+      this.get('/index.php/api/screenv1.converge/selectopic', parmas).then(res => {
+        if(res.data.code == 200) {
+          this.danmList = res.data.list.map(v => {
+            return {
+              value: v.title + v.regdate + '发布人：' + v.author,
+              color: '#26D4FF',
+              fontSize: 14
+            }
+          });
+        } else {
+          this.$message.error(res.data.message);
+        }
+      }).catch(e => {
+        this.$message.error(e.message);
+      });
+
+      // 最新任务
+      this.get('/index.php/api/screenv1.converge/newtask', parmas).then(res => {
+        if(res.data.code == 200) {
+          this.newtask = res.data.list;
+        } else {
+          this.$message.error(res.data.message);
+        }
+      }).catch(e => {
+        this.$message.error(e.message);
+      });
+
+      // 移动直播
+      this.get('/index.php/api/screenv1.converge/livebroadcast', parmas).then(res => {
+        if(res.data.code == 200) {
+          this.liveurl = res.data.list.liveurl;
+        } else {
+          this.$message.error(res.data.message);
+        }
+      }).catch(e => {
+        this.$message.error(e.message);
+      });
+      
+      // 素材回传
+      this.get('/index.php/api/screenv1.converge/materialreturn', parmas).then(res => {
+        if(res.data.code == 200) {
+          this.materialreturn = res.data.list;
+        } else {
+          this.$message.error(res.data.message);
+        }
+      }).catch(e => {
+        this.$message.error(e.message);
+      });
+
+      // 资源中心
+      this.get('/index.php/api/screenv1.converge/resourcecenter', parmas).then(res => {
+        if(res.data.code == 200) {
+          this.imgList = res.data.list;
+        } else {
+          this.$message.error(res.data.message);
         }
       }).catch(e => {
         this.$message.error(e.message);
@@ -320,72 +312,95 @@ export default {
 
     },
     drawLine() {
+      var myVideo=document.getElementById("video1");
+      myVideo.play(); 
 
-      // const player = AwesomeDanmaku.getPlayer('#app');
-      // player.play();
-      // player.insert([
-      //   'Hello Awesome Danmaku!',
-      //   '我是第1条弹幕...',
-      //   '我是第2条弹幕...',
-      //   '我是第3条弹幕...',
-      // ]);
+      this.danmList = [];
+      const player = AwesomeDanmaku.getPlayer('#danm');
+      console.log(player)
 
-      // 基于准备好的dom，初始化echarts实例
-      let myChart = this.$echarts.init(document.getElementById("myChart"));
-      // 绘制图表
-      myChart.setOption({
-        angleAxis: {},
-        radiusAxis: {
-          type: "category",
-          data: ["周一", "周二", "周三", "周四"],
-          z: 10,
-          axisLine: {
-            lineStyle: {
-              color: '#fff',
-              shadowColor: '#fff'
-            }
-          }
-        },
-        color: ["#AC4ED3", "#E6AF08", "#00AF6D", "#0E6DE9", "#2C77DE"],
-        polar: {},
-        series: [
-          {
-            type: "bar",
-            data: [5, 2, 4, 8],
-            coordinateSystem: "polar",
-            textShadowColor: '#fff',
-            emphasis: {
-              color: '#fff',
-              borderColor : '#fff'
-            }
-          }
-        ]
-      });
+      player.play()
+      player.insert(this.danmList);
 
-      // 基于准备好的dom，初始化echarts实例
-      let myChart2 = this.$echarts.init(document.getElementById("myChart2"));
-      // 绘制图表
-      myChart2.setOption({
-        series: [
-          {
-            type: "pie",
-            radius: [10, 60],
-            center: ["50%", "50%"],
-            roseType: "radius",
-            color: ["#0E6DE9", "#E6AF08", "#00AF6D", "#AC4ED3"],
-            label: {
-              normal: {
-                show: false
+      setInterval(() => {
+        player.play()
+        player.insert(this.danmList);
+      }, 4000);
+      // AwesomeDanmaku.getPlayer({
+      //   el: '#danm',
+      //   fontSize: 14
+      // });
+      
+      let parmas = {
+        secret: '598f92d7e2212654288254facf4cdf51'
+      }
+      // 资源分布
+      this.get('/index.php/api/screenv1.converge/resources', parmas).then(res => {
+        if(res.data.code == 200) {
+          this.resources = res.data.list;
+
+          // 基于准备好的dom，初始化echarts实例
+          let myChart = this.$echarts.init(document.getElementById("myChart"));
+          // 绘制图表
+          myChart.setOption({
+            angleAxis: {},
+            radiusAxis: {
+              type: "category",
+              data: ["", "", "", ""],
+              z: 10,
+              axisLine: {
+                lineStyle: {
+                  color: '#fff',
+                  shadowColor: '#fff'
+                }
               }
             },
-            data: [
-              { value: 10},
-              { value: 13},
-              { value: 18},
-              { value: 25}
+            color: ["#AC4ED3", "#E6AF08", "#00AF6D", "#0E6DE9", "#2C77DE"],
+            polar: {},
+            series: [
+              {
+                type: "bar",
+                data: [res.data.list.news, res.data.list.sale, res.data.list.entertainment, res.data.list.design],
+                coordinateSystem: "polar",
+                textShadowColor: '#fff',
+                emphasis: {
+                  color: '#fff',
+                  borderColor : '#fff'
+                }
+              }
             ]
-          }
-        ]
+          });
+
+          // 基于准备好的dom，初始化echarts实例
+          let myChart2 = this.$echarts.init(document.getElementById("myChart2"));
+          // 绘制图表
+          myChart2.setOption({
+            series: [
+              {
+                type: "pie",
+                radius: [10, 60],
+                center: ["50%", "50%"],
+                roseType: "radius",
+                color: ["#0E6DE9", "#E6AF08", "#00AF6D", "#AC4ED3"],
+                label: {
+                  normal: {
+                    show: false
+                  }
+                },
+                data: [
+                  { value: res.data.list.news},
+                  { value: res.data.list.sale},
+                  { value: res.data.list.entertainment},
+                  { value: res.data.list.design}
+                ]
+              }
+            ]
+          });
+        } else {
+          this.$message.error(res.data.message);
+        }
+      }).catch(e => {
+        this.$message.error(e.message);
       });
 
     }
@@ -475,6 +490,63 @@ export default {
       color #26D4FF
       line-height 30px
       padding-left 20px
+
+#danm
+  width 100%
+  height 85%
+  color #26D4FF
+.inner-father
+  width 100%
+  height 240px
+  overflow hidden
+
+.inner-container {
+  animation: myMove 5s linear infinite;
+  animation-fill-mode: forwards;
+}
+  /*文字无缝滚动*/
+@keyframes myMove {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-150px);
+  }
+}
+
+.el-carousel__item img {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  left: 0;
+  top: 0;
+}
+.img-content {
+  width 100%;
+  height: 56px;
+  background: rgba(0,0,0,0.3);
+  color: #09C0FC;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.img-content h3 {
+  font-size: 14px;
+  color: #379AD9;
+}
+.img-content p {
+  font-size: 12px;
+  color: #379AD9;
+  padding-left: 0;
+  float: left;
+}
+.el-carousel__item:nth-child(2n) {
+  background-color: rgba(0,0,0,0);
+}
+
+.el-carousel__item:nth-child(2n+1) {
+  background-color: rgba(0,0,0,0);
+}
   
 
 </style>
