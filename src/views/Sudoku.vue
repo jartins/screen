@@ -19,7 +19,7 @@
           <div class="bor-rt"></div>
         </div>
         <div class="gather-weChat news-bg" style="margin-top: 5px;">
-          <div class="news-title clew">新闻线索</div>
+          <div class="news-title">新闻线索</div>
           <p>记者录入</p>
           <p>
             <span style="width: 350px; display:inline-block;">驻日美军佩戴特朗普头像徽章，美媒... </span>
@@ -58,19 +58,19 @@
           <div class="news-title">舆情分析</div>
           <el-row style="width: 90%; margin: 50px auto;">
             <el-col :span="6" style="margin: 0 auto; text-align: center;">
-              <el-progress type="circle" :percentage="68" color="#8e71c7" width="100"></el-progress>
+              <el-progress type="circle" :percentage="68" color="#8e71c7" :width="100"></el-progress>
               <h3 style="color: #fff">广 告</h3>
             </el-col>
             <el-col :span="6" style="margin: 0 auto; text-align: center;">
-              <el-progress type="circle" :percentage="35" color="#FE8E5F" width="100"></el-progress>
+              <el-progress type="circle" :percentage="35" color="#FE8E5F" :width="100"></el-progress>
               <h3 style="color: #fff">资 讯</h3>
             </el-col>
             <el-col :span="6" style="margin: 0 auto; text-align: center;">
-              <el-progress type="circle" :percentage="23" color="#7DE3F6" width="100"></el-progress>
+              <el-progress type="circle" :percentage="23" color="#7DE3F6" :width="100"></el-progress>
               <h3 style="color: #fff">视 频</h3>
             </el-col>
             <el-col :span="6" style="margin: 0 auto; text-align: center;">
-              <el-progress type="circle" :percentage="12" color="#E6AF08" width="100"></el-progress>
+              <el-progress type="circle" :percentage="12" color="#E6AF08" :width="100"></el-progress>
               <h3 style="color: #fff">y 娱 乐</h3>
             </el-col>
           </el-row>
@@ -81,7 +81,7 @@
       <!-- 中部 -->
       <div class="fll content-lf" style="width: 560px; margin-left: 10px;">
        <div class="gather-weChat news-bg">
-          <div class="news-title clew">新闻线索</div>
+          <div class="news-title">新闻线索</div>
           <p>记者录入</p>
           <p>
             <span style="width: 234px; display:inline-block;">· 航班延误乘客要工作人..</span>
@@ -117,7 +117,7 @@
           <div class="bor-rt"></div>
         </div>
         <div class="gather-weChat news-bg" style="margin-top: 5px;">
-          <div class="news-title clew">新闻线索</div>
+          <div class="news-title">最新任务</div>
           <p>记者录入</p>
           <p>
             <span style="width: 234px; display:inline-block;">· 航班延误乘客要工作人..</span>
@@ -152,16 +152,122 @@
           <div class="bor-lf"></div>
           <div class="bor-rt"></div>
         </div>
-        <div class="gather-weChat news-bg" style="margin-top: 5px;">
-          <div class="news-title clew">新闻线索</div>
-          
+        <div class="gather-weChat news-bg" style="margin: 5px 0 0 0;">
+          <div class="news-title" style="margin: 0;">移动直播</div>
+          <video width="99%" height="245px" id="video1" controls="controls" style="margin: 3px;"> 
+            <source src="../assets/img/gbzy.mp4" type="video/mp4"></source> 
+            your browser does not support the video tag 
+          </video>
           <div class="bor-lf"></div>
           <div class="bor-rt"></div>
         </div>
       </div>
       <!-- 右侧栏 -->
-      <div class="fll">
-
+      <div class="fll content-lf" style="width: 566px; margin-left: 10px;">
+        <div class="gather-weChat news-bg">
+          <div class="news-title">素材回传</div>
+          <el-row>
+            <el-col :span="5" style="color: #fff; text-align: center;">
+              任务资源
+            </el-col>
+            <el-col :span="13">
+              <el-progress :text-inside="true" :stroke-width="18" :percentage="80" color="#01B4FF" class="resource"></el-progress>
+            </el-col>
+            <el-col :span="6" style="color: #02AFFF; text-align: center;">
+              21200 万个
+            </el-col>
+          </el-row>
+          <el-row style="margin-top: 25px;">
+            <el-col :span="5" style="color: #fff; text-align: center;">
+              任务资源
+            </el-col>
+            <el-col :span="13">
+              <el-progress :text-inside="true" :stroke-width="18" :percentage="80" color="#01B4FF" class="resource"></el-progress>
+            </el-col>
+            <el-col :span="6" style="color: #02AFFF; text-align: center;">
+              21200 万个
+            </el-col>
+          </el-row>
+          <el-row style="margin-top: 25px;">
+            <el-col :span="5" style="color: #fff; text-align: center;">
+              任务资源
+            </el-col>
+            <el-col :span="13">
+              <el-progress :text-inside="true" :stroke-width="18" :percentage="80" color="#01B4FF" class="resource"></el-progress>
+            </el-col>
+            <el-col :span="6" style="color: #02AFFF; text-align: center;">
+              21200 万个
+            </el-col>
+          </el-row>
+          <el-row style="margin-top: 25px;">
+            <el-col :span="5" style="color: #fff; text-align: center;">
+              任务资源
+            </el-col>
+            <el-col :span="13">
+              <el-progress :text-inside="true" :stroke-width="18" :percentage="80" color="#01B4FF" class="resource"></el-progress>
+            </el-col>
+            <el-col :span="6" style="color: #02AFFF; text-align: center;">
+              21200 万个
+            </el-col>
+          </el-row>
+          <el-row style="margin-top: 25px;">
+            <el-col :span="5" style="color: #fff; text-align: center;">
+              任务资源
+            </el-col>
+            <el-col :span="13">
+              <el-progress :text-inside="true" :stroke-width="18" :percentage="80" color="#01B4FF" class="resource"></el-progress>
+            </el-col>
+            <el-col :span="6" style="color: #02AFFF; text-align: center;">
+              21200 万个
+            </el-col>
+          </el-row>
+          <div class="bor-lf"></div>
+          <div class="bor-rt"></div>
+        </div>
+        <div class="gather-weChat news-bg" style="margin-top: 5px;">
+          <div class="news-title">资源分布</div>
+          <!-- 左边 -->
+          <div class="fll" style="width: 50%;">
+            <div id="myChart" :style="{width: '150px', height: '150px', margin: '10px auto'}"></div>
+            <p style="font-size: 12px; margin-left: 60px; color: #00DEFF;">
+              <span style="width: 12px; height: 12px; background: #0E6DE9; display: inline-block;"></span>
+              <span style="margin: 0 40px 0 10px; color: #Fff;">互联网</span>
+              <span>36%</span>
+            </p>
+            <p style="font-size: 12px; margin-left: 60px; color: #00DEFF;">
+              <span style="width: 12px; height: 12px; background: #AC4ED3; display: inline-block;"></span>
+              <span style="margin: 0 40px 0 10px; color: #Fff;">娱乐八卦</span>
+              <span>36%</span>
+            </p>
+          </div>
+          <!-- 右边 -->
+          <div class="flr" style="width: 50%;">
+            <div id="myChart2" :style="{width: '160px', height: '150px', margin: '10px auto'}"></div>
+            <p style="font-size: 12px; margin-left: 60px; color: #00DEFF;">
+              <span style="width: 12px; height: 12px; background: #0E6DE9; display: inline-block;"></span>
+              <span style="margin: 0 40px 0 10px; color: #Fff;">互联网</span>
+              <span>36%</span>
+            </p>
+            <p style="font-size: 12px; margin-left: 60px; color: #00DEFF;">
+              <span style="width: 12px; height: 12px; background: #AC4ED3; display: inline-block;"></span>
+              <span style="margin: 0 40px 0 10px; color: #Fff;">娱乐八卦</span>
+              <span>36%</span>
+            </p>
+          </div>
+          <!-- +++++++++++++++++++++++++ -->
+          <div class="bor-lf"></div>
+          <div class="bor-rt"></div>
+        </div>
+        <div class="gather-weChat news-bg" style="margin-top: 5px;">
+          <div class="news-title">资源中心</div>
+          <el-carousel :interval="2000" type="card" height="200px" style="width: 98%; margin: 0 auto;">
+            <el-carousel-item v-for="(item, index) in imgList" :key="index">
+              <img :src="item" alt="" style="width: 100%;">
+            </el-carousel-item>
+          </el-carousel>
+          <div class="bor-lf"></div>
+          <div class="bor-rt"></div>
+        </div>
       </div>
       <!-- 结束 -->
     </div>
@@ -173,6 +279,11 @@ export default {
   props: {},
   data() {
     return {
+      imgList: ['https://wx1.sinaimg.cn/mw690/9b02391aly1g3jjb6hzqzj20r80r8q6a.jpg',
+      'https://wx1.sinaimg.cn/mw690/9b02391aly1g3jjb6hzqzj20r80r8q6a.jpg',
+      'https://wx1.sinaimg.cn/mw690/9b02391aly1g3jjb6hzqzj20r80r8q6a.jpg',
+      'https://wx1.sinaimg.cn/mw690/9b02391aly1g3jjb6hzqzj20r80r8q6a.jpg',
+      'https://wx1.sinaimg.cn/mw690/9b02391aly1g3jjb6hzqzj20r80r8q6a.jpg']
     };
   },
   filters: {},
@@ -184,44 +295,84 @@ export default {
   watch: {},
   methods: {
     drawLine() {
-      // console.log(this.$echarts);
-      // // 基于准备好的dom，初始化echarts实例
-      // let myChart = this.$echarts.init(document.getElementById("myChart"));
-      // // 绘制图表
-      // myChart.setOption({
-      //   angleAxis: {},
-      //   radiusAxis: {
-      //     type: "category",
-      //     data: ["周一", "周二", "周三", "周四"],
-      //     z: 10,
-      //     axisLine: {
-      //       lineStyle: {
-      //         color: '#fff',
-      //         shadowColor: '#fff'
-      //       }
-      //     }
-      //   },
-      //   color: ["#AC4ED3", "#E6AF08", "#00AF6D", "#0E6DE9", "#2C77DE"],
-      //   polar: {},
-      //   series: [
-      //     {
-      //       type: "bar",
-      //       data: [5, 2, 4, 8],
-      //       coordinateSystem: "polar",
-      //       textShadowColor: '#fff',
-      //       emphasis: {
-      //         color: '#fff',
-      //         borderColor : '#fff'
-      //       }
-      //     }
-      //   ]
-      // });
+      // 基于准备好的dom，初始化echarts实例
+      let myChart = this.$echarts.init(document.getElementById("myChart"));
+      // 绘制图表
+      myChart.setOption({
+        angleAxis: {},
+        radiusAxis: {
+          type: "category",
+          data: ["周一", "周二", "周三", "周四"],
+          z: 10,
+          axisLine: {
+            lineStyle: {
+              color: '#fff',
+              shadowColor: '#fff'
+            }
+          }
+        },
+        color: ["#AC4ED3", "#E6AF08", "#00AF6D", "#0E6DE9", "#2C77DE"],
+        polar: {},
+        series: [
+          {
+            type: "bar",
+            data: [5, 2, 4, 8],
+            coordinateSystem: "polar",
+            textShadowColor: '#fff',
+            emphasis: {
+              color: '#fff',
+              borderColor : '#fff'
+            }
+          }
+        ]
+      });
+
+      // 基于准备好的dom，初始化echarts实例
+      let myChart2 = this.$echarts.init(document.getElementById("myChart2"));
+      // 绘制图表
+      myChart2.setOption({
+        series: [
+          {
+            type: "pie",
+            radius: [10, 60],
+            center: ["50%", "50%"],
+            roseType: "radius",
+            color: ["#0E6DE9", "#E6AF08", "#00AF6D", "#AC4ED3"],
+            label: {
+              normal: {
+                show: false
+              }
+            },
+            data: [
+              { value: 10},
+              { value: 13},
+              { value: 18},
+              { value: 25}
+            ]
+          }
+        ]
+      });
 
     }
   },
   components: {}
 };
 </script>
+
+<style>
+  .el-progress__text{
+    color: #fff !important;
+  }
+
+  .resource .el-progress-bar__outer{
+    background-color: #010170 !important;
+  }
+
+  .el-progress-bar__outer {
+    background-color: #3A3F79;
+  }
+</style>
+
 
 <style scoped lang="stylus">
 .home-bg

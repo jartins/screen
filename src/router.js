@@ -7,6 +7,7 @@ import Btninnerlougo from "@/views/Btninnerlougo.vue";
 import Sudoku from "@/views/Sudoku.vue";
 import shreeted from "@/views/shreeted.vue";
 import kepotimefull from "@/views/kepotimefull.vue";
+import Livenews from "@/views/Livenews.vue";
 
 Vue.use(Router);
 
@@ -48,6 +49,10 @@ export default new Router({
       path: "/kepotimefull",
       name: "kepotimefull",
       component: kepotimefull
-    },
+    },{
+      path: "/livenews",
+      name: "Livenews",
+      component: Livenews
+    }
   ]
 });
