@@ -7,8 +7,8 @@
       <!-- 开始 -->
       <div style="height: 50px"></div>
       <div class="news-bg live-new">
-        <div class="news-title">视频标题</div>
-        <video width="100%" height="690px" id="video1"  controls="controls" style="margin: 0; object-fit: fill" src="../assets/img/gbzy.mp4"> 
+        <div class="news-title"><p class="news-title2">视频标题</p></div>
+        <video width="100%" height="665px" id="video1"  controls="controls" style="margin: 0; object-fit: fill" :src="liveurl"> 
           <!-- <source src="../assets/img/gbzy.mp4" type="video/mp4"></source>  -->
           your browser does not support the video tag 
         </video>
@@ -25,16 +25,35 @@ export default {
   props: {},
   data() {
     return {
+      liveurl: ''
     };
   },
   filters: {},
   computed: {},
-  created() {},
+  created() {
+    this.getData();
+  },
   mounted() {
     this.drawLine();
   },
   watch: {},
   methods: {
+    getData() {
+      let parmas = {
+        secret: '598f92d7e2212654288254facf4cdf51'
+      }
+      
+      // 移动直播
+      this.get('/index.php/api/screenv1.converge/livebroadcast', parmas).then(res => {
+        if(res.data.code == 200) {
+          this.liveurl = res.data.list.liveurl;
+        } else {
+          this.$message.error(res.data.message);
+        }
+      }).catch(e => {
+        this.$message.error(e.message);
+      });
+    },
     drawLine() {
       var myVideo=document.getElementById("video1");
       myVideo.play(); 
@@ -85,29 +104,16 @@ export default {
   .resource .el-progress-bar__outer{
     background-color: #010170 !important;
   }
-/* .news-title
-  width 100%
-  height 63px
-  font-size 18px
-  color #20FDFA
-  background linear-gradient(to right, rgba(8, 37, 183, 0.6), rgba(1, 180, 255, 0))
-  line-height 36px
-  text-indent 18px
-  line-height 63px */
+
 .el-progress-bar__outer {
     background-color: #3A3F79;
   }
-  .news-title{
-    width: 100%;
-    height:63px;
-    font-size:20px;
+  .news-title2{
     font-family: SourceHanSansCN-Bold; 
-    color: rgba(0,150,255,1); 
     background: linear-gradient(92deg,rgba(0,114,255,1) 0%, rgba(0,234,255,1) 48.8525390625%, rgba(1,170,255,1) 100%); 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; 
-    text-indent: 18px;
-    line-height:63px;
+
   }
 </style>
 
@@ -150,7 +156,15 @@ export default {
     position absolute
     bottom 0px
     right 0 px
-
+.news-title
+  width 100%
+  height 63px
+  font-size 25px
+  color #20FDFA
+  background linear-gradient(to right, rgba(8, 37, 183, 0.6), rgba(1, 180, 255, 0))
+  line-height 36px
+  text-indent 18px
+  line-height 63px
 
   
 
