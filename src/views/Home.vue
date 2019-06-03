@@ -63,15 +63,10 @@ export default {
       this.get('/index.php/api/screenv1.login/do_login', parmas).then(res => {
         if(res.data.code == 200) {
           console.log(res.data);
-          this.$message.success('ok');
           this.$router.push({ path: '/Btninnerlougo' });
           // this.$routers.push('/maps');
-        } else if(!res.data.code == 201) {
+        } else{
           this.$message.error(res.data.message);
-        } else if (res.data.code == 202){
-          window.localStorage.removeItem("user_id");
-          window.localStorage.removeItem("user_token");
-          this.$router.go(0);
         }
       }).catch(e => {
         this.$message.error(e.message);

@@ -68,7 +68,7 @@
       <div class="fll content-lf" style="width: 560px; margin-left: 10px;">
         <div class="gather-weChat news-bg">
           <div class="news-title" style="margin: 0;">移动直播</div>
-          <video width="99%" height="245px" id="video1"  controls="controls" loop style="margin: 3px; object-fit: fill" :src="liveurl"> 
+          <video width="99%" height="245px" id="video1"  controls="controls" autoplay loop style="margin: 3px; object-fit: fill" :src="liveurl"> 
             <!-- <source src="../assets/img/gbzy.mp4" type="video/mp4"></source> -->
             your browser does not support the video tag 
           </video>
@@ -313,7 +313,9 @@ export default {
     },
     drawLine() {
       var myVideo=document.getElementById("video1");
-      myVideo.play(); 
+      window.setTimeout(() => {
+        myVideo.play();  
+      }, 1000)
 
       this.danmList = [];
       const player = AwesomeDanmaku.getPlayer('#danm');

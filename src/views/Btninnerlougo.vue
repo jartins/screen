@@ -63,7 +63,6 @@ export default {
     this.get('/index.php/api/screenv1.menubar/get_menu').then(res => {
         console.log(res.data)
         this.data=res.data;
-        
       }).catch(e => {
         this.$message.error(e.message);
       });

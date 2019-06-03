@@ -8,7 +8,7 @@
       <div style="height: 50px"></div>
       <div class="news-bg live-new">
         <div class="news-title"><p class="news-title2">视频标题</p></div>
-        <video width="100%" height="665px" id="video1"  controls="controls" loop style="margin: 0; object-fit: fill" :src="liveurl"> 
+        <video width="100%" height="665px" id="video1"  controls="controls" autoplay loop style="margin: 0; object-fit: fill" :src="liveurl"> 
           <!-- <source src="../assets/img/gbzy.mp4" type="video/mp4"></source>  -->
           your browser does not support the video tag 
         </video>
@@ -56,7 +56,9 @@ export default {
     },
     drawLine() {
       var myVideo=document.getElementById("video1");
-      myVideo.play(); 
+      window.setTimeout(() => {
+        myVideo.play();  
+      }, 1000)
       // console.log(this.$echarts);
       // // 基于准备好的dom，初始化echarts实例
       // let myChart = this.$echarts.init(document.getElementById("myChart"));
