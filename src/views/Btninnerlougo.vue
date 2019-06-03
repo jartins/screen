@@ -27,7 +27,7 @@
            </li> -->
            
          </ul>
-
+        <div class="da-btn" @click="goSudoku">进入大屏></div>
        </div>
     </div>
     <!-- <div class="pagenum">
@@ -70,6 +70,9 @@ export default {
   },
   watch: {},
   methods: {
+    goSudoku() {
+      this.$router.push('/sudoku');
+    },
     clickfun(ine) {
       console.log(ine)
      
@@ -201,5 +204,21 @@ position: relative;
     margin-bottom 0
 .Timewebkit
   overflow hidden
-  
+
+.da-btn
+  width 147px
+  height 60px
+  line-height 60px
+  border-radius 10px
+  color #00EAFF
+  border 1px solid #00EAFF
+  font-size 20px
+  text-align center
+  position fixed
+  right 50px
+  bottom 80px
+  cursor pointer
+
+
+
 </style>
